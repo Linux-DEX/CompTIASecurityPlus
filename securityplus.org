@@ -1,0 +1,1536 @@
+#+TITLE: CompTIA Security+ NOTES
+#+DESCRIPTION: CompTIA Security+ 
+#+AUTHOR: Linux-DEX
+#+OPTION: toc:4
+
+* TABLE OF CONTENT :toc:
+- [[#10-threats-attacks--vulnerabilities][1.0 Threats, Attacks & Vulnerabilities]]
+  - [[#threats][Threats]]
+  - [[#attacks][Attacks]]
+  - [[#vulnerabilities][Vulnerabilities]]
+- [[#11-social-engineering-attacks][1.1 Social Engineering Attacks]]
+  - [[#phishing][Phishing]]
+  - [[#smishing][Smishing]]
+  - [[#vishing][Vishing]]
+  - [[#spam][Spam]]
+  - [[#spam-over-instant-messagingspim][Spam over instant messaging(SPIM)]]
+  - [[#spear-phishing][spear phishing]]
+  - [[#dumpster-surfing][Dumpster surfing]]
+  - [[#shoulder-surfing][Shoulder surfing]]
+  - [[#pharming][Pharming]]
+  - [[#tailgating][Tailgating]]
+  - [[#eliciting-information][Eliciting information]]
+  - [[#whaling][Whaling]]
+  - [[#prepending][Prepending]]
+  - [[#identity-fraud][Identity fraud]]
+  - [[#invoice-scams][Invoice scams]]
+  - [[#credential-harvesting][Credential harvesting]]
+  - [[#reconnaissance][Reconnaissance]]
+  - [[#hoax][Hoax]]
+  - [[#impresonation][Impresonation]]
+  - [[#watering-hole-attacks][Watering hole attacks]]
+  - [[#typosquatting][Typosquatting]]
+  - [[#pretexting][Pretexting]]
+  - [[#influence-campaignss][Influence Campaignss]]
+  - [[#principles-reasons-for-effectiveness][Principles (Reasons for effectiveness)]]
+- [[#12-malware][1.2 Malware]]
+  - [[#ransomware][Ransomware]]
+  - [[#trojans][Trojans]]
+  - [[#worms][Worms]]
+  - [[#command-and-control][Command and control]]
+  - [[#fileless-virus][Fileless virus]]
+  - [[#bots][Bots]]
+  - [[#cryptomalware][Cryptomalware]]
+  - [[#logic-bombs][Logic bombs]]
+  - [[#spyware][Spyware]]
+  - [[#keyloggers][Keyloggers]]
+  - [[#remote-access-trojan-rat][Remote access trojan (RAT)]]
+  - [[#rootkit][Rootkit]]
+  - [[#backdoor][Backdoor]]
+  - [[#potentially-unwanted-programs-pups][Potentially unwanted programs (PUPs)]]
+- [[#13-password-attacks][1.3 Password Attacks]]
+  - [[#spraying][Spraying]]
+  - [[#dictionary][Dictionary]]
+  - [[#brute-force-offline-and-online][Brute force (offline and online)]]
+  - [[#rainbow-table][Rainbow table]]
+  - [[#plaintextunencrypted][Plaintext/unencrypted]]
+- [[#14-physical-attacks][1.4 Physical Attacks]]
+  - [[#malicious-universal-serial-bus-usb-cable][Malicious Universal Serial Bus (USB) cable]]
+  - [[#malicious-flash-drive][Malicious flash drive]]
+  - [[#skimming][Skimming]]
+- [[#15-adversarial-artifical-intelligence][1.5 Adversarial Artifical Intelligence]]
+- [[#16-supply-chain-attacks][1.6 Supply Chain Attacks]]
+- [[#17-cloud-based-vs-on-premises-attacks][1.7 Cloud-based vs on-premises Attacks]]
+- [[#18-cryptographic-attacks][1.8 Cryptographic Attacks]]
+  - [[#birthday][Birthday]]
+  - [[#collision][Collision]]
+  - [[#downgrade][Downgrade]]
+- [[#19-privilege-escalation][1.9 Privilege Escalation]]
+  - [[#vertical-privilege-escalation][Vertical Privilege Escalation]]
+  - [[#horizontal-privilege-escalation][Horizontal Privilege Escalation]]
+- [[#110-cross-site-scripting-xss][1.10 Cross Site Scripting (XSS)]]
+- [[#111-injection-attacks][1.11 Injection Attacks]]
+  - [[#structured-query-language-sql][Structured query language (SQL)]]
+  - [[#dynamic-link-library-dll][Dynamic-link library (DLL)]]
+  - [[#lightweight-directory-access-protocol-ldap][Lightweight Directory Access Protocol (LDAP)]]
+  - [[#extensible-markup-language-xml][Extensible Markup Language (XML)]]
+- [[#112-pointerobject-dereference][1.12 Pointer/object dereference]]
+- [[#113-directory-traversal][1.13 Directory Traversal]]
+- [[#114-buffer-overflows][1.14 Buffer Overflows]]
+  - [[#stack-overflow-attack][Stack overflow attack]]
+  - [[#heap-overflow-attack][Heap overflow attack]]
+  - [[#integer-overflow-attack][Integer overflow attack]]
+  - [[#unicode-overflow][Unicode overflow]]
+- [[#race-condition-time-of-check-time-of-use][Race condition: Time-of-check time-of-use]]
+- [[#116---117-error-handling--improper-input-handling][1.16 - 1.17 Error handling & Improper input handling]]
+- [[#118-replay-attack][1.18 Replay Attack]]
+- [[#119-integer-overflow][1.19 Integer Overflow]]
+- [[#120-request-forgeries][1.20 Request Forgeries]]
+  - [[#server-side][Server-side]]
+  - [[#cross-site][Cross-site]]
+- [[#121-application-programming-interfaceapi-attacks][1.21 Application Programming Interface(API) Attacks]]
+- [[#122-resource-exhaustion][1.22 Resource exhaustion]]
+- [[#123-memory-leak][1.23 Memory Leak]]
+- [[#124-secure-sockets-layerssl-stripping][1.24 Secure Sockets Layer(SSL) stripping]]
+- [[#125-driver-manipulation][1.25 Driver Manipulation]]
+  - [[#shimming][Shimming]]
+  - [[#refactoring][Refactoring]]
+- [[#126-pass-the-hash][1.26 Pass the Hash]]
+- [[#127-wireless-attacks][1.27 Wireless Attacks]]
+  - [[#evil-twin][Evil Twin]]
+  - [[#rogue-access-point][Rogue access point]]
+  - [[#bluejacking][Bluejacking]]
+  - [[#jamming][jamming]]
+  - [[#radio-frequency-id][Radio frequency ID]]
+  - [[#nfc][NFC]]
+- [[#128-on-path-attack-man-in-the-middle-attack][1.28 On-path attack (man-in-the-middle attack)]]
+- [[#129-layer-2-attack][1.29 Layer 2 attack]]
+  - [[#address-resolution-protocol-arp-poisoning][Address Resolution Protocol (ARP) poisoning]]
+  - [[#media-access-control-mac-flooding][Media access control (MAC) flooding]]
+  - [[#mac-cloning][MAC cloning]]
+- [[#130-domain-name-systemdns-attacks][1.30 Domain Name System(DNS) attacks]]
+  - [[#domain-hijacking][Domain Hijacking]]
+  - [[#dns-poisoning][DNS poisoning]]
+  - [[#uniform-resource-locatorurl-redirection][Uniform Resource Locator(URL) redirection]]
+  - [[#domain-reputation][Domain Reputation]]
+- [[#131-distributed-denial-of-serviceddos][1.31 Distributed denial-of-service(DDoS)]]
+  - [[#network][Network]]
+  - [[#application][Application]]
+  - [[#operational-technologyot][Operational technology(OT)]]
+- [[#132-malicious-code-or-script-execution][1.32 Malicious code or Script execution]]
+  - [[#powershell][Powershell]]
+  - [[#python][Python]]
+  - [[#bash][Bash]]
+  - [[#macros][Macros]]
+  - [[#visual-basic-for-applicationvba][Visual Basic for Application(VBA)]]
+- [[#133-actors--threats][1.33 Actors & Threats]]
+  - [[#advanced-persistent-threatapt][Advanced persistent threat(APT)]]
+  - [[#state-actors][State actors]]
+  - [[#insider-threats][Insider threats]]
+  - [[#hacktivists][Hacktivists]]
+  - [[#script-kiddies][Script kiddies]]
+  - [[#criminal-syndicates][Criminal syndicates]]
+  - [[#hackers][Hackers]]
+  - [[#shadow-it][Shadow IT]]
+  - [[#competitors][Competitors]]
+- [[#134-attributes-of-actors][1.34 Attributes of Actors]]
+- [[#135-vectors][1.35 Vectors]]
+  - [[#direct-access][Direct access]]
+  - [[#wireless][Wireless]]
+  - [[#email][Email]]
+  - [[#supply-chain][Supply Chain]]
+  - [[#social-media][Social media]]
+  - [[#removable-media][Removable media]]
+  - [[#cloud][Cloud]]
+- [[#136-threat-intelligence-sources][1.36 Threat Intelligence Sources]]
+  - [[#open-source-intelligenceosint][Open-source intelligence(OSINT)]]
+  - [[#closedproprietary][Closed/proprietary]]
+  - [[#vulnerability-databases][Vulnerability databases]]
+  - [[#publicprivate-information-sharing-centers][Public/private information sharing centers]]
+  - [[#dark-web][Dark web]]
+  - [[#indicators-of-compromise][Indicators of compromise]]
+  - [[#automated-indicator-sharingais][Automated Indicator Sharing(AIS)]]
+  - [[#predictive-analysis][Predictive analysis]]
+  - [[#threat-maps][Threat maps]]
+  - [[#filecode-repositories][File/Code repositories]]
+- [[#137-research-sources][1.37 Research sources]]
+  - [[#vendor-websites][Vendor websites]]
+  - [[#vulnerability-feeds][Vulnerability feeds]]
+  - [[#threat-feeds][Threat feeds]]
+  - [[#conferences][Conferences]]
+  - [[#academic-journals][Academic journals]]
+  - [[#request-for-comments-rfc][Request for comments (RFC)]]
+  - [[#local-industry-groups][Local industry groups]]
+  - [[#social-media-1][Social media]]
+  - [[#adversary-tactics-techniques-and-procedurettp][Adversary tactics, techniques, and procedure(TTP)]]
+- [[#138-cloud-based-vs-on-premises-vulnerabilities][1.38 Cloud based vs on-premises Vulnerabilities]]
+- [[#139-zero-day][1.39 Zero-day]]
+- [[#140-weak-configurations][1.40 Weak Configurations]]
+  - [[#open-permissions][Open Permissions]]
+  - [[#unsecure-root-accounts][Unsecure root accounts]]
+  - [[#errors][Errors]]
+  - [[#weak-encryption][Weak Encryption]]
+  - [[#unsecure-protocols][Unsecure protocols]]
+  - [[#default-settings][Default settings]]
+  - [[#open-ports-and-services][Open ports and services]]
+- [[#141-third-party-risks][1.41 Third-party risks]]
+  - [[#vendor-management][Vendor management]]
+  - [[#supply-chain-1][Supply chain]]
+  - [[#outsourced-code-development][Outsourced code development]]
+  - [[#data-storage][Data storage]]
+- [[#142-improper-or-weak-patch-management][1.42 Improper or Weak patch management]]
+  - [[#firmware][Firmware]]
+  - [[#operating-systemos][Operating System(OS)]]
+  - [[#applications][Applications]]
+- [[#143-legacy-platforms][1.43 Legacy Platforms]]
+- [[#144-impacts][1.44 Impacts]]
+  - [[#data-loss][Data loss]]
+  - [[#data-breaches][Data breaches]]
+  - [[#data-exfiltration][Data exfiltration]]
+  - [[#identity-theft][Identity theft]]
+  - [[#financial][Financial]]
+  - [[#reputation][Reputation]]
+  - [[#availability-loss][Availability loss]]
+- [[#145-threat-hunting][1.45 Threat Hunting]]
+  - [[#intelligence-fusion][Intelligence fusion]]
+  - [[#threat-feeds-1][Threat feeds]]
+  - [[#advisories-and-bulletins][Advisories and bulletins]]
+  - [[#maneuver][Maneuver]]
+- [[#146-vulnerability-scans][1.46 Vulnerability Scans]]
+  - [[#false-positives][False positives]]
+  - [[#false-negatives][False negatives]]
+  - [[#log-reviews][Log reviews]]
+  - [[#credentialed-vs-non-credentialed][Credentialed vs non-credentialed]]
+  - [[#intrusive-vs-non-intrusive][Intrusive vs non-intrusive]]
+  - [[#application-1][Application]]
+  - [[#web-application][Web application]]
+  - [[#network-1][Network]]
+  - [[#common-vulnerabilities-and-exposurescvecommon-vulnerability-scoring-systemcvss][Common Vulnerabilities and Exposures(CVE)/Common Vulnerability Scoring System(CVSS)]]
+  - [[#configuration-review][Configuration review]]
+- [[#147-security-information--event-managementsiem][1.47 Security Information & Event Management(SIEM)]]
+  - [[#review-reports][Review reports]]
+  - [[#packet-capture][Packet capture]]
+  - [[#data-inputs][Data inputs]]
+  - [[#user-behavior-analysis][User behavior analysis]]
+  - [[#sentiment-analysis][Sentiment analysis]]
+  - [[#security-monitoring][Security monitoring]]
+  - [[#log-aggregation][Log aggregation]]
+  - [[#log-collectors][Log collectors]]
+- [[#148-security-orchestration-automation-and-responsesoar][1.48 Security orchestration, automation, and response(SOAR)]]
+- [[#149-penetration-testing][1.49 Penetration Testing]]
+  - [[#known-environment][Known environment]]
+  - [[#unknown-environment][Unknown environment]]
+  - [[#partially-known-environment][Partially known environment]]
+  - [[#rules-of-engagement][Rules of engagement]]
+  - [[#lateral-movement][Lateral movement]]
+  - [[#privilege-escalation][Privilege escalation]]
+  - [[#persistence][Persistence]]
+  - [[#cleanup][Cleanup]]
+  - [[#bug-bounty][Bug bounty]]
+  - [[#pivoting][Pivoting]]
+- [[#150-passive--active-reconnaissance][1.50 Passive & Active reconnaissance]]
+  - [[#war-flying][War flying]]
+  - [[#war-driving][War driving]]
+  - [[#footprinting][Footprinting]]
+  - [[#osint-open-source-intelligence][OSINT (Open source intelligence)]]
+- [[#151-exercise-types][1.51 Exercise types]]
+  - [[#red-team][Red-team]]
+  - [[#blue-team][Blue-team]]
+  - [[#white-team][White-team]]
+  - [[#purple-team][Purple-team]]
+- [[#21-configuration-management][2.1 Configuration Management]]
+  - [[#diagrams][Diagrams]]
+  - [[#baseline-configuration][Baseline configuration]]
+  - [[#standard-naming-conventions][Standard naming conventions]]
+  - [[#internet-protocol-ip-schema][Internet protocol (IP) schema]]
+- [[#22-data-sovereignty][2.2 Data Sovereignty]]
+- [[#23-data-protection][2.3 Data Protection]]
+  - [[#data-loss-preventiondlp][Data Loss Prevention(DLP)]]
+  - [[#masking][Masking]]
+  - [[#encryption][Encryption]]
+  - [[#tokenization][Tokenization]]
+  - [[#at-rest][At rest]]
+  - [[#in-transitmotion][In transit/motion]]
+  - [[#in-processing][In processing]]
+  - [[#rights-management][Rights management]]
+- [[#24-geographical-consideration][2.4 Geographical Consideration]]
+- [[#25-response--recovery-controls][2.5 Response & Recovery controls]]
+- [[#26-ssltlshttps-inspection][2.6 SSL/TLS(HTTPS) inspection]]
+- [[#27-hashing][2.7 Hashing]]
+- [[#28-api-considerations][2.8 API considerations]]
+- [[#29-site-resilencyrecovery-sites][2.9 Site resilency/Recovery sites]]
+- [[#210-deception--disruption][2.10 Deception & Disruption]]
+  - [[#honeypots][Honeypots]]
+  - [[#honeyfiles][Honeyfiles]]
+  - [[#honeynets][Honeynets]]
+  - [[#fake-telemetry][Fake telemetry]]
+  - [[#dns-sinkhole][DNS sinkhole]]
+- [[#211-different-cloud-models][2.11 Different Cloud Models]]
+  - [[#infrastructure-as-a-serviceiaas][Infrastructure as a service(IaaS)]]
+  - [[#platform-as-a-servicepaas][Platform as a service(PaaS)]]
+  - [[#software-as-a-servicesaas][Software as a service(SaaS)]]
+  - [[#anything-as-a-servicexaas][Anything as a service(XaaS)]]
+  - [[#public][Public]]
+  - [[#community][Community]]
+  - [[#private][Private]]
+  - [[#hybrid][Hybrid]]
+- [[#212-cloud-service-providers][2.12 Cloud Service providers]]
+- [[#213-managed-service-providermsp--managed-security-service-providermssp][2.13 Managed Service Provider(MSP) & Managed Security Service Provider(MSSP)]]
+- [[#214-on-premises-vs-off-premises-cloud-monitoring-solutions][2.14 On-premises vs off-premises cloud monitoring solutions]]
+- [[#215-fog-computing][2.15 Fog Computing]]
+- [[#216-edge-computing][2.16 Edge Computing]]
+- [[#217-thin-client][2.17 Thin Client]]
+- [[#218-containers][2.18 Containers]]
+- [[#219-microservicesapi][2.19 Microservices/API]]
+- [[#220-infrastructure-as-code][2.20 Infrastructure as code]]
+  - [[#software-defined-networkingsdn][Software-defined networking(SDN)]]
+  - [[#software-defined-visibilitysdv][Software-defined visibility(SDV)]]
+- [[#221-serverless-architecture][2.21 Serverless Architecture]]
+- [[#222-services-integration][2.22 Services Integration]]
+- [[#223-resource-policies][2.23 Resource policies]]
+- [[#224-transit-gateway][2.24 Transit gateway]]
+- [[#225-vm-sprawl-avoidance-and-vm-escape-protection][2.25 VM sprawl avoidance and VM escape protection]]
+  - [[#what-is-virtualization][What is Virtualization]]
+  - [[#what-is-hypervisor][What is hypervisor]]
+  - [[#what-is-vm-sprawl][What is VM sprawl]]
+  - [[#what-is-vm-escape][What is VM escape]]
+- [[#226-application-development-environment][2.26 Application Development environment]]
+  - [[#development][Development]]
+  - [[#test][Test]]
+  - [[#staging][Staging]]
+  - [[#production][Production]]
+  - [[#quality-assurance-qa][Quality Assurance (QA)]]
+- [[#227-provisioning-and-deprovisioning][2.27 Provisioning and deprovisioning]]
+- [[#228-integrity-measurement][2.28 Integrity Measurement]]
+- [[#229-secure-coding-techniques][2.29 Secure coding techniques]]
+  - [[#normalization][Normalization]]
+  - [[#stored-procedure][Stored procedure]]
+  - [[#obfuscationcamouflage][Obfuscation/camouflage]]
+  - [[#code-reusedead-code][Code reuse/dead code]]
+  - [[#server-side-vs-client-side-execution-and-validation][Server-side vs client-side execution and validation]]
+  - [[#memory-management][Memory management]]
+  - [[#use-of-third-party-libraries-and-software-development-kitssdks][Use of third-party libraries and software development kits(SDKs)]]
+  - [[#data-exposure][Data exposure]]
+- [[#230-open-web-application-security-projectowasp][2.30 Open Web Application Security Project(OWASP)]]
+- [[#231-software-diversity][2.31 Software diversity]]
+- [[#232-automationscripting][2.32 Automation/scripting]]
+  - [[#continuous-monitoring][Continuous monitoring]]
+  - [[#continuous-validation][Continuous validation]]
+  - [[#continuous-integration][Continuous integration]]
+  - [[#continuous-delivery][Continuous delivery]]
+  - [[#continuous-deployment][Continuous deployment]]
+- [[#233-elasticity][2.33 Elasticity]]
+- [[#234-scalability][2.34 Scalability]]
+- [[#235-version-control][2.35 Version control]]
+- [[#236-authentication-methods][2.36 Authentication methods]]
+  - [[#directory-services][Directory services]]
+  - [[#federation][Federation]]
+  - [[#attestation][Attestation]]
+  - [[#technologies][Technologies]]
+- [[#237-biometrics][2.37 Biometrics]]
+  - [[#types-of-biometrics-security][types of biometrics security]]
+- [[#238-multifactor-authenticationmfa-factors-and-attributes][2.38 Multifactor authentication(MFA) factors and attributes]]
+  - [[#attributes][Attributes]]
+- [[#239-authentication-authorization-and-accountingaaa][2.39 Authentication, authorization, and accounting(AAA)]]
+- [[#240-cloud-vs-on-premises-for-authentication-and-authorization][2.40 Cloud vs on-premises for authentication and authorization]]
+- [[#241-redundancy][2.41 Redundancy]]
+- [[#242-replication][2.42 Replication]]
+  - [[#storage-area-network][Storage area network]]
+  - [[#vm][VM]]
+- [[#244-on-premises-vs-cloud-resiliency][2.44 On-premises vs Cloud resiliency]]
+
+* 1.0 Threats, Attacks & Vulnerabilities
+** Threats
+- Actors and Threats
+- Attributes of Actors
+- Threat Intelligence Sources
+- Research Source
+** Attacks
+- Social engineering attacks
+- Malware attacks
+- Password attacks
+- Physical attacks
+- Artifical intelligence attacks
+- Supply chain attacks
+- Cloud attacks
+- On premises attacks
+- Cryptologic attacks
+- Application attacks
+- Network attacks
+** Vulnerabilities
+- Cloud and on-premise vulnerabilities
+- Zero-Day
+- Third-Party risks
+- Weak configurations
+- Improper or weak patch management
+- Legacy platforms
+- Impacts
+
+* 1.1 Social Engineering Attacks
+** Phishing
+When attackers attempt to trick users into doing "the wrong thing", such as clicking a bad link that will download malware, or direct them to a dodgy website.
+
+** Smishing
+A social engineering attack that uses fake mobile text messages to trick people into downloading malware, sharing sensitive infromation, or sending money to cybercriminals.
+
+** Vishing
+Short for "voice phishing" which involves defrauding people over the phone, enticing them to divulge sensitive information.
+
+** Spam
+Unsolicited and unwanted junk email sent out in bulk to a wholesale recipient list.
+
+** Spam over instant messaging(SPIM)
+Spam messages symptomatic of widely-used free instant messaging apps like Messenger, Whatsapp, Viber, Telegram, Skype and WeChat.
+
+** spear phishing
+A type of phishing campaign that targets a specific person or group and often will include information known to be of interst to the target, such as current event or financial documents.
+
+** Dumpster surfing
+A cyberattack where the attacker get their hand on sensitive documents or data you carelessly threw into the trash bin.
+
+** Shoulder surfing
+Attacks such as shoulder surfing involve observing you use your mobile phone, laptop or credit card in order to steal you sensitive personal information.
+
+** Pharming
+Online fraud that involves the use of malicious code to direct victims to spoofed websites in an attempt to steal their credentials and data.
+
+** Tailgating
+where an attacker follows an unaware user to gain access to an area without authorization.
+
+** Eliciting information
+A structured method of communication used to extract predetermined information from people without making them aware that they are a collection target.
+
+** Whaling
+A highly targeted phishing attack - aimed at senior executives - masquerading as a legitimate email.
+
+** Prepending
+When an attacker prepends, or attaches, a trushworthy value like "RE:" or "MAILSAFE:PASSED" to a message in order to make the message appear more trustworthy.
+
+** Identity fraud
+The attacker's use of online platforms to steal indentities and commit online fraud.
+
+** Invoice scams
+Can come from a fake or a hijacked vendor account.
+
+** Credential harvesting
+It is also known as password harvesting or username harvesting, is a form of cyberattack that involves the theft of personal or financial data such as username and passwords, typically carried out through phishing, malicious website, email scams, or malware but not always.
+
+** Reconnaissance
+the infromation-gathering stage of ethical hacking where you collect data about the target system.
+
+** Hoax
+A computer virus hoax is a message warning the recipients of a non-existent computer virus threat.
+
+** Impresonation
+Cybercrime where a criminal pretends to be a known person or organization to steal confidential data or money. 
+
+** Watering hole attacks
+A form of cyberattack that targets groups of users by infecting websites that they commonly visit.
+
+** Typosquatting
+A form of cybersquatting (sitting on sites under someone else's brand or copyright) that targets internet users who incorrectly type a website address into their web browser.
+
+** Pretexting
+Pretexting is use of a fabricated story, or pretext, to gain a victim's trust and trick or manipulate them into sharing sensitive information, downloading malware, sending money to criminals, or otherwise harming themselves or the organization they work for.
+
+** Influence Campaignss
+A powerful strategy if approached with authenticity and strategic thinking.
+
+*** Hybrid warfare
+Traditional warfare techniques are combined with hacking and the previously mentioned influence campaigns.
+
+*** Social media
+Part of more extensive campaigns which use other techniques such as espionage and hacking.
+
+** Principles (Reasons for effectiveness)
+- Authority
+- Intimidation
+- Consensus
+- Familiarity
+- Trust
+- Urgency+Scarcity
+  
+* 1.2 Malware
+Malware (malicious software) is a file or code, typically delivered over a network, that infects, explores steals or conducts virtually any behavios an attacker wants.
+
+** Ransomware
+ransomware is a type of malware that encrypts files or blocks access to a computer system. Cybercriminals demand ransom money in exchange for releasing the data.
+*example*: cryptorbit
+
+** Trojans
+A type of malware that downloads onto a computer disguised as a legitimate program.
+*example*: trojan horse.
+
+** Worms
+A type of malware or malicious software that can replicate repidly and spread across devices within a network.
+*example*: raspberry robin malware
+
+** Command and control
+ A type of cyberattack that allows attackers to remotely control and manipulate compromised systems. It is also known as C2 attack.
+
+** Fileless virus
+Code that works directly within a computer's memory instead of the hard drive. It uses legitimate programs to compromise you computer instead of malicious files.
+
+** Bots
+A type of software application or script that performs automated tasks on command.
+
+** Cryptomalware
+Malware that encrypts data on the victim's device and demands a ransom to restore it.
+
+** Logic bombs
+A piece of often-malicious code that is intentionly inserted into software. It remains dormant until specific conditions are met. When triggered, a logic bomb executes a destructive action, such as
+- deleting files
+- disrupting critical system
+
+** Spyware
+Malicious software that enters a user's computer, gathers data from the device and user, and sends it to third parties without their consent.
+
+** Keyloggers
+Tools that record what a person types on a device.
+
+** Remote access trojan (RAT)
+Malware designed to allow an attacker to remotely control an infected computer.
+*example:* subseven
+
+** Rootkit
+A rootkit attack occurs when a piece of malicious software infiltrates a computer, enabling an attacker to gain access and control of the machine and steal data from it.
+
+** Backdoor
+A backdoor is a method of bypassing an organization's security systems. Backdoors are also known as *trap doors*. They are built into software by the original programmer.
+
+
+** Potentially unwanted programs (PUPs)
+A program that may be unwanted, despite the possibility that users consented to download it.
+
+* 1.3 Password Attacks
+OS and application run the hash function and store the password in hash value.
+
+input + hash Function = hash value
+
+** Spraying
+A type of brute force attack where a malicious actor attempts the same password on many accounts before moving on to another one and repeating the process.
+
+** Dictionary
+A method of breaking into a password-protected computer, network or other IT resource by systematically entering every word in a dictionary as a password.
+
+** Brute force (offline and online)
+A trial-and-error method used by application programs to decode login information and encryption keys to use them to gain unauthorized access to system.
+
+** Rainbow table
+A password cracking method that uses a special table (a *rainbow table*) to crack the password hashes in a database.
+
+** Plaintext/unencrypted
+Involves accessing a password in its original, unencrypted form. This can occur if the password is stored in clear text in a file or database, or if it is transmitted over the network without being encrypted.
+
+* 1.4 Physical Attacks
+An attacker gains physical access to a physical asset in the infrastructure system in order to damage it, disable it steal it, or use it in an undesirable way.
+
+** Malicious Universal Serial Bus (USB) cable
+Method that can be used to steal data, take control of a device, or introduce a virus. The cable looks normal, but has additional electronics inside. It can tell your operatin system that it is a human interface device (HID)
+*** A malicious USB calbe can:
+- Be controlled remotely by a hacker
+- Monitor the victim machine for inactivity
+- Silently compromise the victim's machine without their knowledge
+- Allow hackers access to your device.
+
+** Malicious flash drive
+Method where a malicious flash drive or a malicious USB cable is inserted into a victim's computer. This attack preys on victim's ignorance and trust in devices.
+
+** Skimming
+As the word *skim* means *to read quickly*, criminals use various devices, known as skimmers, to steal data without the victim even realising it.
+
+*** Card Cloning
+Most credit card cloning fraud is done through the use of skimmers. Skimmers read credit card infromation such as numbers, PINs, CVV data through the magnetic stripe, and can be attached to hardware such as point of sale (POS) terminal.
+
+* 1.5 Adversarial Artifical Intelligence
+Adversarial AI is the use of algorithm and mathematical approaches to manipulate, deny, deceive, or degrade AI systems. Adversarial attacks can be used to:
+- Fool intrusion detection system.
+- Cause machine learning models to make incorrect predictions
+- manipulate the machine learning process.
+
+* 1.6 Supply Chain Attacks
+When someone uses an outside provider or partner that has access to your data and systems to infiltrate your digital infrastructure.
+[[./img/sca.png]]
+
+* 1.7 Cloud-based vs on-premises Attacks
+
+| Cloud-based                                     | on-premises                                   |
+|-------------------------------------------------+-----------------------------------------------|
+| No dedicated hardware, no data center to secure | Security burden on the client                |
+| A third-party handles everything                | Data center security and infrastructure costs |
+
+* 1.8 Cryptographic Attacks
+** Birthday
+** Collision
+** Downgrade
+
+[[./img/birthdayparadox.png]]
+
+[[./img/cryptfor.png]]
+
+* 1.9 Privilege Escalation
+A cyberattack to gain illicit access of elevated rights, premissions, entitlements, or privileges beyond what is assigned for an identity, account, user, or machine.
+
+[[./img/privilege.png]]
+
+** Vertical Privilege Escalation
+- An increase of privileges/privileged access beyond what a user, application, or other asset already has. This entails moving from a low level of privileged access to a higher level of privileged access.
+- if an non-administrative user can gain access to an admin page where they can delete user accounts.
+
+  
+** Horizontal Privilege Escalation
+Gaining access to the rights of another account-human or machine-with similar privileges.
+*example*: if an employee can access the records of other employees as well as their own, then this is horizontal privilege escalation.
+
+* 1.10 Cross Site Scripting (XSS)
+- An attack in which an attacker injects malicious executable scripts into the code of a trusted application or website.
+- Attackers often initiate an XSS attack by sending a malicious line to a user and enticing the user to click it.
+
+[[./img/xss.png]]
+
+* 1.11 Injection Attacks
+A form of cyber attack in which information is sent to alter the system's interpretation of commands.
+** Structured query language (SQL)
+A cyberattack that injects malicious SQL code into an application, allowing the attacker to view or modify a database.
+
+[[./img/sqlInjection.png]]
+
+** Dynamic-link library (DLL)
+A method of injecting malicious code into an application by exploiting the way some windows applications search and load Dynamic Link libraries.
+[[./img/dllInjection.png]]
+
+** Lightweight Directory Access Protocol (LDAP)
+Exploits security loopholes caused by unsanitized user input data.
+
+[[./img/ldapInjection.png]]
+
+** Extensible Markup Language (XML)
+An injection attack technique used to manipulate or compromise the logic of an XML application or document.
+
+[[./img/xmlInjection.png]]
+
+* 1.12 Pointer/object dereference
+A NULL pointer dereference occurs when the application dereferences a pointer that it expects to be valid, but is NULL, typically causing a crash or exit.
+
+* 1.13 Directory Traversal
+Directory traversal, also known as path traversal, is an HTTP attack that allows attackers to access restricted directories and execute commands outside of the web server's root directory. It's also known as the dot-dot-slash attack (../), directory climbing, or backtracking.
+
+[[./img/directory.png]]
+
+* 1.14 Buffer Overflows
+A common cyberattack that deliberately exploits a buffer overflow vulnerability where user-controlled data is written to memory.
+
+** Stack overflow attack
+A type of buffer overflow attack that occurs when a computer program tries to use more memory space in the call stack than has been allocated to that stack.
+
+** Heap overflow attack
+ A type of buffer overflow that occurs when a program writes more data to a heap-allocated memory buffer than the buffer is designed to hold.
+
+** Integer overflow attack
+Occurs when you attempt to store inside a integer variable a value that is larger than the maximum value the variable can hold.
+
+** Unicode overflow
+A type of buffer overflow attack that exploits the extra memory required to store a string in Unicode format. Unicode overflow attacks work by inserting unicode characters into an input that expects ASCII characters.
+
+* Race condition: Time-of-check time-of-use
+- A type of software error that occurs when the order in which things happen is not considered properly by the programmer running code on an application.
+- Race condition often occur in parallel processes. However, they can occur within one program.
+
+[[./img/race.png]]
+
+* 1.16 - 1.17 Error handling & Improper input handling
+A meaningful error message to the user, diagnostic information to the site maintainers, and no useful information to an attacker.
+
+A type of vulnerability in computer software that may be used for security exploits.
+
+* 1.18 Replay Attack
+A type of network attack where an attacker captures a valid network transmission and then retransmits it later. The goal is to trick the system into accepting the retransmission of the data as legitimate.
+
+[[./img/replay.png]]
+
+* 1.19 Integer Overflow
+Occurs when you attempt to store inside a integer variable a value that is larger than the maximum value the variable can hold.
+
+* 1.20 Request Forgeries
+** Server-side
+An attacker abusing server functionality to access or modify resources.
+
+[[./img/server-side.png]]
+
+** Cross-site
+An attack that forces authenticated user to submit a request to a web application against which they are currently authenticated.
+
+[[./img/crossSite.png]]
+
+* 1.21 Application Programming Interface(API) Attacks
+- Any hostile or attempted hostile usage of an API. 
+- Attackers exploit vulnerabilities in API endpoint to gain unauthorized access, compromise data, disrupt service, or perform other malicious activities.
+  
+* 1.22 Resource exhaustion
+A denial of service attack that can often be done by a single device over low bandwidths.
+
+[[./img/resource.jpeg]]
+
+* 1.23 Memory Leak
+An unintentional form of memory consumption whereby the developer fails to free an allocated block of memory when no longer needed.
+
+[[./img/memory.png]]
+
+* 1.24 Secure Sockets Layer(SSL) stripping
+A cybersecurity threat that leads to a downgrade from an HTTPS secure connection to less secure encrypted HTTP connection, causing the whole web connection is not encrypted anymore.
+
+[[./img/ssl.png]]
+
+* 1.25 Driver Manipulation
+** Shimming
+The process of inserting a layer between an application and the operating system to modify the behavior of the application.
+
+** Refactoring
+The process of modifying an existing driver to change its behaviour.
+
+* 1.26 Pass the Hash
+A type of cybersecurity attack in which an adversary steals a "hashed" user credential and user it to create a new user session on the same network.
+
+[[./img/passthehash.png]]
+
+* 1.27 Wireless Attacks
+** Evil Twin
+** Rogue access point
+** Bluejacking
+** jamming
+** Radio frequency ID
+** NFC
+
+* 1.28 On-path attack (man-in-the-middle attack)
+Place themselves between two device(often an web browser and a web server) and intercept or modify communications between the two. The attackers can then collect infromation as well as impersonate either of the two agents.
+
+[[./img/onpath.png]]
+
+* 1.29 Layer 2 attack
++ A cyber attack that can compromise network security.
++ These attacks can reveal passwords to attacker or interrupt access to the cloud.
+
+** Address Resolution Protocol (ARP) poisoning
+When an attacker sends falsified ARP message over a local area network (LAN) to link an attacker's MAC address with the IP address of a legitimate computer or server on the network.
+
+[[./img/arp.png]]
+
+** Media access control (MAC) flooding
+Take advantage of MAC address. Every device has a MAC address, a unique numerical signifier used to identify that device within a network. When data is sent between devices on a network, it passes through a system called a switch.
+
+[[./img/macflooding.png]]
+
+** MAC cloning
+The act of changing or impersonating the MAC address of a network interface card to match the MAC address of an authorized device on the network.
+
+[[./img/maccloning.jpeg]]
+
+* 1.30 Domain Name System(DNS) attacks
+The threat actor sending a DNS lookup request to the open DNS server, spoofing the source address to become the target address.
+
+** Domain Hijacking
++ An attack where an organization's web address is stolen by another party.
++ The other party changes the enrollment of another's domain name without the consent of its legitimate owner.
+
+[[./img/domainhijacking.jpeg]]
+
+** DNS poisoning
+It happens when a fake information is entered into the cache of a domain name server, resulting in DNS queries producing an incorrect reply, sending users to the wrong website.
+
+[[./img/dnspoisoning.png]]
+
+** Uniform Resource Locator(URL) redirection
++ A vulnerability which allows an attacker to force users of your application to an untrusted external site.
++ the attack is most often performed by delivering a link to the victim, who then clicks the link and is unknowingly redirected to the malicious website.
+
+[[./img/urlredirection.png]]
+
+** Domain Reputation
+The health or condition of your branded domain as determined by internet service providers(ISPs) & mailbox providers.
+
+* 1.31 Distributed denial-of-service(DDoS)
+** Network
+** Application
+** Operational technology(OT)
+
+* 1.32 Malicious code or Script execution
+** Powershell
++ It is a command line shell, it give access to almost everything in windows. 
++ powershell attack are challenging to detect because the execute command directly from memroy and do not write anything to the disk.
++ This allows hacker to disable windows defender.
+
+** Python
+** Bash
+** Macros
+** Visual Basic for Application(VBA)
+
+* 1.33 Actors & Threats
+** Advanced persistent threat(APT)
+A type of cyberattack that involves an intruder gaining access to a network and remaining undetected for a long time. APTs are often orchestrated by a group of skilled hackers. The hacker group designs the attack with a particular motive that can range from sabotage to corporate espionage.
+
+[[./img/apt.jpeg]]
+
+** State actors
++ The nation state actor has a "Licence to hack".
++ they work for a government to disrupt or compromise target governments, organisation or individuals to gain access to valuable data or intelligence, and can create incidents that have international significance.
+
+** Insider threats
+Threats that originate with authorized users- employees, contractors, business partners-who intentionally or accidentally misuse their legitimate access, or have their accounts hijacked by cybercriminals.
+
+** Hacktivists
+A hacker activist, someone who attacks computer systems for political reasons. "hacktivism" is hacking activism.
+
+** Script kiddies
+An individual with little to no technical expertise using pre-existing automated tools or scripts to launch attacks on computer system or networks.
+
+** Criminal syndicates
+These cybercrime gangs consist of hackers, developers, and other tech outlaws who pool their expertise and resources to perform massive crimes that would otherwise be impossible to carry out.
+
+** Hackers
+*** Authorized (White hat)
+*** Unauthorized (Black hat)
+*** Semi-authorized (Grey hat)
+
+** Shadow IT
+The use of IT-related hardware or software by a department or individual without the knowledge of the IT or security group within the organization. It can encompass cloud services, software, and hardware.
+
+** Competitors
+In the field of cybersecurity, competitors typically refer to companies, organizations, or individuals that offer similar products, services, or solutions aimed at addressing security threats and protecting digital assets. These competitors often operate in the same markets segment and vie for the same target audience, which could be businesses, governments, or individual consumers.
+
+* 1.34 Attributes of Actors
+Attributes of threat actors includes: *internal* vs *external* actors, level of sophistication and capability, resources and funding, and intent and motivation.
+
+* 1.35 Vectors
+** Direct access
+In a direct-access attack, a person gains physical access to a computer and performs malicious actions including installing different types of devices to compromise security, like operating system modifications, software worms, keyloggers or covert listening devices.
+
+** Wireless
+An attack vector is a pathway or method used by a hacker to illegally access a network or computer in an attempt to exploit system vulnerabilities.
+
+** Email
+The the lot of phishing attack come
+
+** Supply Chain
+Protects physical integrity and defends against cyber threats.
+
+** Social media
+the practice of protecting online content and user data from unauthorized access and malicious attacks.
+
+** Removable media
+A type of cyber threat or attack that utilizes removable media, such as USB drives, extenal hard drives, CDs, and DVDs, as a method of spreading malware or gaining unauthorized access to systems.
+
+** Cloud
+A type of cyber threat or attack that specifically targets cloud computing environments, which encompass various services such as storage databases, servers, networking, software, and analytics provided over the internet.
+
+* 1.36 Threat Intelligence Sources
+** Open-source intelligence(OSINT)
+A method of gathering information from public or other open sources.
+
+** Closed/proprietary
+Proprietary CMS come up with a set of restrictions which makes it less flexible in comparison to open-source software. It might appear that closed source software or proprietary software is more secure since the code is not available.
+
+** Vulnerability databases
+A platform aimed at collecting, maintaining, and disseminating information about discovered computer security vulnerabilities.
+
+** Public/private information sharing centers
+A nonprofit organization that provides a central resource for gathering infromation on cyber and related threats to critical infrastructure and providing two-way sharing of information between the private and public sectors.
+
+** Dark web
+Any traffic sent through Tor Browser is automatically anonymized and ecrypted via many different hosts. The browser also has built-in protection for many kinds of tracking and de-anonymization features.
+
+** Indicators of compromise
+The digital and informational "clues" that incident responders use to detect, diagnose, halt, and remediate malicious activity in their networks.
+
+** Automated Indicator Sharing(AIS)
+*** Structured Threat Infromation eXpression(STIX)
+A language and serialization format used to exhange cyber threat intelligence(CTI).
+
+*** Trusted Automated eXchange of Intelligence Information (TAXII)
+How cyber threat information can be shared via services and message exchanges. It is designed specifically to support STIX information, which it does by defining an API that aligns with common sharing models.
+
+** Predictive analysis
+It encompasses a variety of statistical techniques from data mining, predictive modelling, and machine learning, that analyze current and historical facts to make predictions about future or otherwise unknown events.
+
+** Threat maps
+A real-time map of the computer security attacks that are going on at any given time.
+
+** File/Code repositories
+A central location where software developers can store, manage, and collaborate on code and other software development assets. This can help to improve code quality, productivity, and security.
+
+* 1.37 Research sources
+** Vendor websites
+A website published by or on behalf of vendor.
+
+** Vulnerability feeds
+Providing data about security vulnerabilities and associated cyber threat intelligence to reduce cyber risk and streamline investigation and response.
+
+** Threat feeds
+A real-time, continuous data stream that gathers information related to cyber risks or threats.
+
+** Conferences
+refer to the information, insights, and findings presented at various conferences, seminars, workshops, and symposiums dedicated to the field of cybersecurity.
+
+** Academic journals
+focuses on all aspects of science technologies, and application relating to hardware security, software security and system security.
+
+** Request for comments (RFC)
+Authored by individual or grups of engineers and computer scientists in the form of a memorandum describing methods, behaviors, research, or innovations applicable to the working of the internet and internet-connected systems.
+
+** Local industry groups
+Local industry group research sources in cybersecurity refer to the information, data, and insights generated or curated by regional or local associations, organizations, or groups that are focused on cybersecurity within a particular industry or geographical area.
+
+** Social media
+Social media research sources in cybersecurity refer to information, insights, and data derived from various social media platforms that are relevant to the field of cybersecurity. 
+
+** Adversary tactics, techniques, and procedure(TTP)
+In the field of cybersecurity, TTP stands for Tactics, Techniques, and Procedures. TTPs refer to the behaviors, methods, and strategies used by threat actors to carry out cyber attacks or malicious activities. Understanding TTPs is crucial for cybersecurity professionals as it enables them to anticipate, detect, and mitigate various cyber threats effectively.
+
+* 1.38 Cloud based vs on-premises Vulnerabilities
+Cloud based system and services are more vulnerable to attack because they are typically accessed by many users over internet, making it easier for attackers to target them. However, on-premises systems can also be vulnerable to attacks, particularly if they are not properly secured or maintained.
+
+* 1.39 Zero-day
+An undiscovered flaw in an application or operating system, a gap in security for which there is no defense or patch because the software make does not know it exists.
+
+* 1.40 Weak Configurations
+** Open Permissions
+A type of weak configuration where the principle of least privilege is breached, and access to data or applications isn't properly restricted to only those who require it.
+
+** Unsecure root accounts
+Vulnerable to takeover due to poor security configuration, such as weak passwords, or allowing remote logins as root.
+
+** Errors
+Configuration settings that decrease the security of an asset such as a computer or network.
+
+** Weak Encryption
+The use of a weak encryption algorithm and/or flawed implementation of encryption to secure data.
+
+** Unsecure protocols
+Allow insecure protocols to be used instead of secure alternatives, causing data to be transferred unencrypted and opening the possibility of interception and man-in-the-middle attacks.
+
+** Default settings
+Configuration settings that decrease the security of an asset such as a computer or networks.
+
+** Open ports and services
+for example, software hosting a website might be the listening on ports 80(http) and 443(https). *Open ports can cause or execerbate security problems.* For instance, if an unused, outdated piece of software is listening to a port, that software and port can become an attack vector.
+
+* 1.41 Third-party risks
+** Vendor management
+Helps to indentify, assess, and mitigate these risks, assuring that your business is adequately prepared to address potential challenges.
+
+*** System integration
+*** Lack of vendor support
+
+** Supply chain
+The flow of goods and services and may be made up of internal or external(third party) entities. 
+
+** Outsourced code development
+cybersecurity refers to the practice of delegating software development tasks to external third-party vendors. While outsourcing development can offer numberous benefits, such as cost savings and access to specialized expertise, it also introduces potential security risk that organizations need to consider and manage effectively.
+
+** Data storage
+Cybersecurity refers to the potential security threats and vulnerabilities that arise when an organization entrusts the storage of its sensitive or confidential data to external third-party service providers. While outsourcing data storage cna offer benefits such as cost savings, scalability, and accessibility, it also introduces various security risks that organizations must address and manage effectively to protect their data from unauthorized access, breaches, or misuse.
+
+* 1.42 Improper or Weak patch management
+** Firmware
+The patch usually consists of a firmware image in form of binary data, together with a supplier-provided special program that replaces the previous version with the new version.
+
+** Operating System(OS)
+The process of applying updates to software, drivers, and firmware to protect against vulnerabilities.
+
+** Applications
+The process of applying vendor-issued updates to close security vulnerabilities and optimize the performance of software and devices.
+
+* 1.43 Legacy Platforms
+A preferred route for a hacker to attack and get to cloud-based systems and data. Breaking into a legacy system is an easier way to access systems and data within public clouds.
+
+* 1.44 Impacts
+** Data loss
+Incident where data is destroyed, deleted, corrupted, or made unreadable by users and software applications. A data lose incident can be intentional or accidental.
+
+** Data breaches
+A data breach can easily result in identity theft when sensitive information is exposed to unauthorised individuals. Hackers can use this infromation to steal a person's identity and commit fraudulent activities, such as opening new accounts or making unauthorised purchases.
+
+** Data exfiltration
+Failing to control information security can lead to data loss that could cause reputational and financial damage to an organization.
+
+** Identity theft
+Damage done by indentity theft has a trickle-down effect, causing personal and emotional trauma for the person who accidentally gives the cyber criminal access to data.
+
+** Financial
+The financial repercussions of cyber security breaches can be devastating, often extending far beyond the initial incident. 
+
+** Reputation
+IBM security found that reputation loss can lead to $1.52 million in lost business, and the IDC found that 80% of consumers in developed nations will defect from a business if their information is compromised in a security breach.
+
+** Availability loss
+This principle ensures systems, applications and data are available and accessible to authorized users when they need them. Networks, systems and application must be constantly up and running to ensure critical business processes are uninterrupted.
+
+* 1.45 Threat Hunting
+** Intelligence fusion
+Intelligence fusion is the process of searching and correlating data from many sources to look for indicators that a threat is present. In cybersecurity, intelligence fusion is *the process of integrating threat intelligence across all secuirty aspects of an organization to tackle targeted threats*.
+
+** Threat feeds
++ A cybersecurity technique that involves searching for cyber threats that are hidden in a network.
++ Threat hunters look for anomalies in networks, systems, and devices.
+
+** Advisories and bulletins
++ Threat hunting is a proactive security technique that involves searching for threats in systems.
++ The goal is to monitor everyday activities and traffic across a network to find any malicious activities that could lead to an breach.
+
+** Maneuver
++ Threat hunting is the practice of proactively searching for cyber threat that are lurking undetected in a network.
++ Cyber threat hunting digs deep to find malicious actors in your environment that have slipped past your initial endpoint security defenses.
+
+* 1.46 Vulnerability Scans
+** False positives
++ False positives occur when a scanning tool, web application firewall(WAF), or intrusion prevention system(IPS) incorrectly flag a security vulnerability during software testing.
++ False positives describe the situation where a test case fails, but in actuality there is no bug and functionality is working correctly.
+
+** False negatives
++ the text passes when a bug or security vulnerability is in fact present or the functionality is not working as it should.
++ the more times testing tools and strategies give false negatives the less reliable and useful the results.
+
+** Log reviews
++ It's important to properly investigate reported vulnerabilites and verify their before we take steps to fix them.
++ One of the easiest ways to do this is a process called log review, where a reported vulnerability is validated by examining relevant system and network logs.
+
+** Credentialed vs non-credentialed
++ Credentialed scanning involves the use of privileged credentials to scan systems and applications.
++ This type of scanning provides an in-depth and comprehensive analysis of vulnerabilities and provides more accurate results.
++ Uncredentialed scanning is conducted without the use of privileged credentials.
+
+** Intrusive vs non-intrusive
++ Non-intrusive scans simply identify a vulnerability and report on it so you can fix it.
++ Intrusive scans attempt to exploit a vulnerability when it is found.
+
+** Application
++ Vulnerability scanning is the process of identifying security weaknesses and flaws in systems and software running on them.
++ This is a integral component of a vulnerability management program, which has one overaraching goal - to protect the organization from breaches and the exposure of sensitive data.
+
+** Web application
+Web application vulnerability scanners are automated tools that scan web applications, normally from the outside, to look for security vulnerabilities such as Cross-site scripting, SQL injection, command injection, path traversal and insecure server configuration.
+
+** Network
+Is the process of inspecting and reporting potential vulnerabilites and security loopholes on a computer, network, web application or other device, including switches, routers, firewalls and wireless access points.
+
+** Common Vulnerabilities and Exposures(CVE)/Common Vulnerability Scoring System(CVSS)
+CVE is a glossary that classifies vulnerabilites. The glossary analyzes vulnerabilites and then uses the CVSS to evaluate the threat level of a vulnerability.
+
+** Configuration review
+Is a process for scanning operating system vulnerabilities to identify and mitigate vulnerabilities that threaten compliance, including software flaws, missing patches, malware, and misconfigurations across operating systems, devices and applications.
+
+* 1.47 Security Information & Event Management(SIEM)
++ It is a set of software tools and services that help organizations detect, analyze, and repond to security threats.
++ SIEMs combine security information management(SIM) and security event management(SEM).
+
+[[./img/siem.jpg]]
+
+** Review reports
+** Packet capture
+** Data inputs
+** User behavior analysis
+** Sentiment analysis
+** Security monitoring
+** Log aggregation
+** Log collectors
+
+* 1.48 Security orchestration, automation, and response(SOAR)
++ It is a software solution that enables security teams to integrate and coordinate separate tools into streamlined threat response workflows.
++ In large organizations, security operations centers(SOCs) rely on numerous tools to track and respond to cyberthreats.
+  
+[[./img/soar.jpg]]
+
+* 1.49 Penetration Testing
++ Also known as "pen testing" or "ethical hacking", *is a security exercise that simulates a cyberattack to find vulnerabilities in a computer system*.
++ The purpose of this exercise is to identify any weak spots in a system's defenses that attackers could take advantage of.
+
+** Known environment
++ Also known as white box testing, *uses information about an organization's structure, hardware, software, and security policies*.
++ Penetration testing is a cybersecurity technique that identifies vulnerabilities in applications or networks.
+
+** Unknown environment
+Also know as black box testing, proceeds without using any initial knowledge of how an organization is structured, what kind of hardware and software it uses, or its security policies, processes, and procedures.
+
+** Partially known environment
++ Also known as gray box, combines the two other approaches to perform an evaluation based on partial knowledge of the target environment.
++ The results are a security evaluation from the perspective of a disgruntled employee.
+
+** Rules of engagement
++ Detaild guideline and constraints regarding the execution of information security testing.
++ The ROE is established before the start of a security test, and give the test team authority to conduct defined activities without the need for additional permissions.
+
+** Lateral movement
+It refers to the techniques that a cyberattacker uses, after gaining initial access, to move deeper into a network in search of sensitive data and other high-value assets.
+
+** Privilege escalation
++ It is the attempt to elevate access permissions by exploiting bugs, system flaws, human behaviors, configuration oversights, or weak access controls.
++ In most cases, the first penetration attack attempt is not enough to gain the required level of access to data.
+
+** Persistence
++ Involves regular vulnerability assessments and constant monitoring of software assets.
++ A constantly evolving and varying cyberspace means that attackers are constantly changing how they approach exploiting new vulnerability.
+
+** Cleanup
++ Removing any executables, scripts, and temporary files from compromised systems.
++ Reconfiguring settings back to the original parameters prior to the pentest.
++ Eliminating any rootkits installed in the environment.
++ Removing any user accounts created to connect to the compromised system.
+
+** Bug bounty
+It is conducted over a period decided beforehand. most often 1 to 3 weeks depending on the scope. A bug bounty therefore *allows organizations to continuously test teh security of their systems*, whereas a pentest is an assessment of the security level of an asset at the given point in time.
+
+** Pivoting
+It focuses on identifying vulnerabilities in a target system by exploiting the entry point and then pivoting to other systems and networks within the organization's infrastructure.
+
+* 1.50 Passive & Active reconnaissance
++ Passive reconnaissance is an attempt to gain information about targeted computers and networks without actively engaging with the systems.
++ In active reconnaissance, in contrast, the attacker engages with the target system, typically conducting a port scan to find any open ports.
+
+** War flying
+War flying is a passive reconnaissance technique that involves driving or flying a drone near a business to gether information about wireless networks.
+This information can include:
++ SSIDs
++ Signal strength and direction
++ Encryption in use
++ Location of access point
++ Frequencies in use
+
+** War driving
+War driving is a passive attack that uses a portable antenna to scan for vulnerable Wi-Fi networks
+
+** Footprinting
+There are Two main types of footprinting: *Passive and active*. 
++ passive footprinting involves collecting data without actively engaging with the target system.
++ under this approach, information is collected through crawling website and social media platforms, among other methods.
+
+** OSINT (Open source intelligence)
++ In cybersecurity, Open-Source intelligence (OSINT) is the process of gathering information from publicly available sources.
++ Passive reconnaissance uses OSINT to collect information on a target. 
++ Active reconnaissance involves directly interacting with a computer system to gather information about the target.
+
+* 1.51 Exercise types
+** Red-team
+Plays the role of the attacker by trying to find vulnerabilities and break through cybersecurity defenses.
+
+** Blue-team
+The blue team defends against attacks and responds to incident when they occour.
+
+** White-team
+The group responsible for refereeing an engagement between a Red Team of mock attackers and a Blue Team of actual defenders of their enterprise's use of information system.
+
+** Purple-team
++ A group of cybersecurity professionals who work together with red and blue teams to test adn improve and organization's security posture.
++ Purple teams act as an intermediary between red and blue teams, allowing them to communicate.
+
+* 2.1 Configuration Management
+The management and control of configurations for an information system to enable security and facilitate the management of risk.
+
+** Diagrams
+** Baseline configuration
+** Standard naming conventions
+** Internet protocol (IP) schema
+
+* 2.2 Data Sovereignty
++ Data sovereignty refers to the idea that a country or jurisdiction has the authority and right to govern and control the data generated within its borders.
++ This means that the government has the power to regulate the collection, storage, processing, and distribution of data that originates within its territory.
+
+* 2.3 Data Protection
++ The process of protecting sensitive information from damage, loss, or corruption.
++ As the amount of data being created and stored has increased at an unprecedented rate, making data protection increasingly important.
+
+** Data Loss Prevention(DLP)
++ A security solution that identifies and helps prevent unsafe or inappropriate sharing, transfer, or use of sensitive data.
++ It can help your organization monitor and protect sensitive information across on-premises systems, cloud-based locations, and endpoint devices.
+
+** Masking
++ A data security technique that protects sensitive data by modifying it so it's of little value to unauthorized intruders.
++ The goal is to create a realistic, but fake version of data that can be used for testing or training.
+
+** Encryption
++ Encryption uses cybersecurity to defend againt brute-force and cyber-attacks, including malware and ransomware.
++ Data encryption works by securing transmitted digited data on the cloud and computer systems.
++ There are two kind of digital data, transmitted data or in-flight data and stored digital data or data at rest.
+
+** Tokenization
+The process of replacing sensitive data with unique identification symbols that retain all the essential information about the data without compromising its security.
+
+** At rest
+Data protection at rest aims to secure inactive data stored on any device or network.
+
+** In transit/motion
++ Data in transit, also known as data in motion, is *data that is being transferred between locations over a private network or the internet*.
++ The data is vulnerable while it is being transmitted.
++ Data can be intercepted and compromised as it travels across the network where it is out of a user's direct control.
+
+** In processing
++ Data protection is the process of protecting sensitive information from damage, loss, or corruption. 
++ As the amount of data being created and stored has increased at an unprecedented rate, making data protection increasingly important.
+
+** Rights management
++ The use of technology to control and manage access to copyrighted material.
++ Another DRM meaning is taking control of digital content away from the person who possesses it and handing it to a computer program.
+
+* 2.4 Geographical Consideration
++ If you have data residing in a particular country, it tends to be subject to the laws of that particular country.
++ This means that any legal monitoring or any court orders will be subject to the subject to the country where that data resides.
+
+* 2.5 Response & Recovery controls
++ An effective response strategy will minimise the impact of a data breach or other cybersecurity incident and help your organisation to recover.
++ Reduce operational and financialf impact - In the event of a cyber attack, the speed of your response and recovery depends on the extent to which you are prepared.
+
+* 2.6 SSL/TLS(HTTPS) inspection
++ SSL is technology your applications or browsers may have used to create a secure, encrypted communication channel over any network. However, SSL is an older technology that contains some security flaws.
++ Transport Layer Security(TLS) is the upgraded version of SSL that fixes existing SSL vulnerabilities.
+
+* 2.7 Hashing
++ Hashing is the practice of transforming a given key or string of characters into another value for the purpose of security.
++ Although the teams *hashing* and *encryption* may be used interchangeably, hashing is always used for the purposes of one-way encryption, and hashed values are very difficult to decode.
+
+[[./img/hashing.png]]
+
+[[./img/hashingtable.png]]
+
+* 2.8 API considerations
++ One of the most important aspects of API security is *access control for authentication and authorization*.
++ A powerful tool for controlling API access in OAuth-a token-based authentication framework that allows third-party services to access information without exposing user credentials
+
+* 2.9 Site resilency/Recovery sites
+
+[[./img/srrs.jpeg]]
+
+* 2.10 Deception & Disruption
++ Deception technology is a category of cybersecurity solutions that detect threats early with low rates of false positives.
++ The technology deploys realistic decoys in a network alongside real assets to act as lures.
+
+** Honeypots
++ A honeypot is a system, or series of systems, that's designed to look very attractive to an attacker. And hopefully, the attacker will try to gain access to these fake honeypot systems that are on your network.
++ the actual attacker is probably not a human being- it's probably an automated system.
+
+** Honeyfiles
+Honeyfiles are *an intrusion detection mechanism based on deception*. Specifically, a honeyfile is a bait file that is intended for hackers to open, and when the file is opened, an alarm is set off.
+
+** Honeynets
++ A honeynet is a network set up with intentional vulnerabilites hosted on a decoy server to attract hackers. 
++ The primary purpose is to test network security by inviting attacks.
++ This approach helps security experts study an actual attacker's activities and methods to improve network security.
+
+** Fake telemetry
++ Fake telemetry is a type of deception technology that can be used in cybersecurity.
++ Deception technology uses decoys to lure potential attackers and insiders. 
++ The decoys can be domains, databases, directories, servers, app, files, credentials, or breadcrumbs.
+
+** DNS sinkhole
++ A DNS sinkhole is a DNS server that provides a false domain name in response to a DNS query.
++ This redirects the client device and prevents a connection to a bad domain.
++ DNS sinkholes are also known as: sinkhole server, internet sinkhole, Blackhole DNS.
+
+* 2.11 Different Cloud Models
+Cloud computing is a model for enabling ubiquitous, convenient, and on-demand network access to a shared pool of resources. These computing resources can be rapidly provisioned and released with minimal effort.
+
+** Infrastructure as a service(IaaS)
++ IaaS is a cloud computing model that provides on-demand access to computing resources.
++ Iass includes:
+    - Compute
+    - memory
+    - storage
+    - networking
+    - virtualization
+    - related software, such as operating systems and databases
+
+** Platform as a service(PaaS)
++ PaaS is a cloud computing model that provides developers with a complete environment for building, running, and managing applications.
++ PaaS includes everything developers need such as:
+    - servers
+    - operating system
+    - networking
+    - storage
+    - middleware
+    - tools
+
+** Software as a service(SaaS)
++ SaaS is a cloud computing model that *allows users to access software through an internet browser*.
++ SaaS is a software licensing model that allows users to access software on a subscription basis.
+
+** Anything as a service(XaaS)
++ It's a cloud computing model that provides access to a wide range of digital services and products.
++ XaaS is an emerging technology that goes beyond traditional SaaS applications.
+
+** Public
+A public is a cloud computing model that offers IT infrastructure like servers, networking, and storage resources as virtual resources accessible over the internet.
+
+** Community
+The community cloud model is a type of cloud infrastructure that allows multiple organizations to access systems and services.
+
+** Private
+A private cloud is a cloud computing environment that's dedicated to a single organization.
+
+** Hybrid
+Hybrid cloud models integrate a company's internal IT resources with third-party cloud provider infrastructure and services.
+
+* 2.12 Cloud Service providers
+
+[[./img/cloudprovider.png]]
+
+* 2.13 Managed Service Provider(MSP) & Managed Security Service Provider(MSSP)
+
+[[./img/mspvsmssp.jpeg]]
+
+* 2.14 On-premises vs off-premises cloud monitoring solutions
++ On-premise monitoring *allows you to monitor assets that are internal to you organization*. You can use on-premise monitoring to look at the overall health status of your infrastructure hardware and applications running on them.
++ Off-premise software is software that is not installed on a company's own servers. Instead, the company leases or rents the software from a third-party provider.
+
+* 2.15 Fog Computing
+Fog computing is a term for technology that extends cloud computing and services to the edge of an enterprise's network. It allows data, applications, and other resources to be moved closer to, or even on top of, end users.
+
+[[./img/fogcomputing.jpeg]]
+
+* 2.16 Edge Computing
++ Edge computing is an emerging computing paradigm which refers to a range of networks and devices at or near the user. 
++ Edge is about processing data closer to where it's being generated, enabling processing at greater speeds and volumes, leading to greater action-led results in real time.
+
+* 2.17 Thin Client
+A thin client is a device with limited computing capacity. Your users can use it to perform more complicated, compute-intensive tasks by exchanging data with a centralized server.
+
+* 2.18 Containers
++ In cloud computing, a container is *a software package that contains all the necessary elements to run an application in any environment*.
++ Containers are stand-alone, executable units that have everything needed to run an applicaiton, including: Code, runtime, System tools, System libraries.
+
+[[./img/containers.jpeg]]
+
+* 2.19 Microservices/API
++ A software architecture that breaks down an application into small, independent services. Each microservice solves a single problem or performs a specific task.
++ A contract of communication between two software components. APIs are part of an application that communicates with other applications.
++ *APIs can be used to enable microservices*. 
+
+[[./img/microservices.png]]
+
+* 2.20 Infrastructure as code
+The process of dynamically managing and provisioning infrastructure through code instead of through a manual process to simplify app development, configuration, and runtime.
+
+** Software-defined networking(SDN)
+A network architecture approach that enables the network to be intelligently and contrally controlled, or programmed, using software applications.
+
+[[./img/sdn.jpeg]]
+
+** Software-defined visibility(SDV)
++ SDV is to a visibility infrastructure what software-defined networking is to a network infrasture.
++ SDV *combines the pervasive reach of visibility with an automation framework*.
++ In an SDN infrastructure, network switches and routers form the physical network or the layer 2-3 data plane.
+
+[[./img/sdv.jpg]]
+
+* 2.21 Serverless Architecture
++ A serverless computing, also known as serverless architecture, is an approach to software design that allows engineers to build and run application without having to manage the underlying infrastructure.
+
+[[./img/serverless.jpg]]
+
+* 2.22 Services Integration
++ The process of bringing the data from multiple cloud environments together.
++ It allows them to operate as one platform within the infrastructure of the organization. 
++ The introduction of the cloud is changing the way businesses deal with their data.
+
+[[./img/integration.png]]
+
+* 2.23 Resource policies
++ A resource policy is a system rule that specifies resources and actions for a particular access feature.
++ A resource is either a server or file that can be accessed through the system, and a action is to "allow" or "deny" a resource or to perform or not perform a function.
+
+* 2.24 Transit gateway
++ A transit gateway is a network transit hub that you can use to interconnect your virtual private clouds(VPCs) and on-premises networks.
++ As your cloud infrastructure expands globally, inter-region peering connects transit gateways together using the AWS Global infrastructure.
+
+[[./img/transitgateway.png]]
+
+* 2.25 VM sprawl avoidance and VM escape protection
+** What is Virtualization
++ Virtualization is technology that you can use to create virtual representations of servers, storage, networks, and other physical machines.
++ Virtual software mimics the functions of physical hardware to run multiple virtual machines simultaneously on a single physical machine.
+
+** What is hypervisor
++ A hypervisor is a software that you can use the run multiple virtual machines on a single physical machine. 
++ Every virtual machine has its own operating system and applications.
++ The hypervisor allocates the underlying physical computing resources such as CPU and memory to individual virtual machines as required.
+
+** What is VM sprawl
++ Virtualization sprawl is a phenomenon that occurs when the number of virtual machines(VMs) on a network reaches a point where administrators can no longer manage them effectively.
++ Virtualization sprawl is also referred to as virtual machine sprawl, VM sprawl or virtual server sprawl.
+
+[[./img/VMsprawl.jpeg]]
+
+** What is VM escape
++ Virtual machine escape is an exploit in which the attacker runs code on a VM that allows an operating system running within it to break out and interact directly with the hypervisor.
++ Such an exploit could give the attacker access to the host operating system and all other virtual machines(VMs) running on that host.
+
+[[./img/VMescape.png]]
+
+* 2.26 Application Development environment
+The application development environment(ADE) is the right tool for achieving this goal. ADE *provides you the freedom to quickly develop your own custom-ized applications in a user-friendly environment that requires zero or minimal programming skills.*
+
+** Development
+A workspace with a set of processes and programming tools used to develop the source code for an application or software product.
+
+** Test
+Where application testing is conducted to find and fix errors.
+
+** Staging
+a nearly exact replica of a production environment for software testing.
+
+** Production
+A workspace with a set of processes and programming tools used to develop the source code for an application or software product.
+
+** Quality Assurance (QA)
+ensures that the application developed is of the highest quality possible for end users/clients.
+
+* 2.27 Provisioning and deprovisioning
++ User provisioning and deprovisioning involves the process of creating, updating and deleting user accounts in multiple applications and systems.
++ This access management practice can sometimes include associated information, such as user entitlements, group memberships and even the groups themselves.
+
+[[./img/provisioning.png]]
+
+* 2.28 Integrity Measurement
+Integrity measurement ensure proper behavior of software using a three phase approach: The software binary is analyzed and a measurement approach and behavioral baseline are established.
+
+* 2.29 Secure coding techniques
+Secure coding practices entail writing code in a way that will prevent potential security vulnerabilities. This includes maintaining both your source code and any third-party libraries in a secure state.
+
+** Normalization
+The process of transforming raw data into a standardized and structured format that can be used by security teams for deeper investigation.
+
+** Stored procedure
+** Obfuscation/camouflage
+** Code reuse/dead code
+** Server-side vs client-side execution and validation
+** Memory management
+** Use of third-party libraries and software development kits(SDKs)
+** Data exposure
+
+* 2.30 Open Web Application Security Project(OWASP)
+
+[[./img/owasp.jpeg]]
+
++ The OWASP is a nonprofit organization focused on improving the security of software.
++ It provides freely available security related resources, tools, and documentation to individuals, organizations, and governments interested in improving their understanding and implementation of software security.
+
+* 2.31 Software diversity
+
++ It refers to the intentional variation or diversity in the software and systems used within an organization or across different systems. 
++ The concept is rooted in the idea that having diverse software environments can enhance overall cybersecurity resilience by making it more challenging for attackers to exploit vulnerabilities across a wide range of system.
+
+* 2.32 Automation/scripting
+Automation is the use of technology to perform repeatable tasks with minimal human assistance, which can reduce manual errors and improve efficiency.
+
+** Continuous monitoring
+** Continuous validation
+** Continuous integration
+** Continuous delivery
+** Continuous deployment
+
+* 2.33 Elasticity
+Elasticity refers to the ability to quickly adapt to changing threats and vulnerabilities.
+
+[[./img/elasticity.png]]
+
+* 2.34 Scalability
+The ability to handle more work as a system grows without slowing down or crashing.
+
+* 2.35 Version control
++ Version control is a *system used to track and manage changes made to a file or a set of files.*
++ Cybersecurity controls are mechanisms used to prevent, detect, and mitigate cyber threats and attacks.
+
+[[./img/versionControl.png]]
+
+* 2.36 Authentication methods
+
+** Directory services
++ Cybersecurity Directory services refer to systems and protocols designed to manage and secure digital within an organizations information technology infrastructure.
++ These services play a critical role in ensuring that only authorized users and systems have access to specific resources, and they contirbute to the overall security of an organization's IT environment. 
+
+** Federation
++ A process that allows for the conveyance of identity and authentication information across a set of networked systems.
++ Federated identity Management(FIM) links user's identities across multiple security domains, enabling them to use the same verification method to access applications and resources.
+
+** Attestation
++ A process of providing a digital signature for a set of measurements securely stored in hardware, and then having the requrester validate the signature and the set of measurement.
++ A security attestation letter is proof in an official capacity of a company's security status, providing benchmarks, improvement scores, and validation of security standing.
++ It is essential for companies that have a lot of sensitive data, and a security attestation is proof that it is secure.
+
+** Technologies
+*** Time-based one-time password(TOTP)
+*** HMAC-based one-time password(HOTP)
+*** Short message service(SMS)
+*** Token key
+**** Smart Card
+*** Static codes (regular passwords)
+*** Authentication applications
+*** Push notifications
+*** Phone Call
+
+* 2.37 Biometrics
+Biomatrics and biological measurements or physical characteristics that can be used to identify individuals.
+for example, fingerprint mapping, facial recongnition, and retina scans are all forms of biometric technology.
+
+** types of biometrics security
+*** Biological biometrics
+use traits at a genetic and molecular level. These may include features like DNA or your blood, which might be assessed through a sample of your body's fluids.
+
+*** Morphological biometrics
+involve the structure of your body. More physical traits like your eye, fingerprint, or the shape of your face can be mapped for use with security scanners.
+
+*** Behavioral biometrics
+are based on patterns unique to each person. How you walk, speak, or even type on a keyboard can be an indication of your identity if these patterns are tracked.
+
+* 2.38 Multifactor authentication(MFA) factors and attributes
+
+[[./img/mfa.png]]
+
+[[./img/mfa-factor.png]]
+
+** Attributes
++ Somewhere you are
++ Something you can do
++ Something you exhibit
++ Someone you know
+
+* 2.39 Authentication, authorization, and accounting(AAA)
+
+[[./img/aaa.png]]
+
+[[./img/aaalog.png]]
+
+* 2.40 Cloud vs on-premises for authentication and authorization
+
+[[./img/cloudaaa.png]]
+
+[[./img/cloudvsonpremises.png]]
+
+* 2.41 Redundancy
+It refers to building multiple resource that serve the same functions and can replace each other in the event of the loss of primary system resources.
+
+[[./img/redundancy.png]]
+
++ Power
++ Network
++ Disk
+
+* 2.42 Replication
+** Storage area network
++ A subset of *disaster recovery* strategy for enterprises.
++ Organization opt for storage replication to ensure in case of failure data storage is always available at alternate site.
++ Two storage device can be connected physically or via a storage area network(SAN).
+
+** VM
++ Virtual machine(VM) replication is a process in which a copy of a virtual machine is created and maintained on another host or storage location to ensure redundancy, disaster recovery, and high availability.
+
+* 2.44 On-premises vs Cloud resiliency
+
+
+
+
+
+
+
+
+
+
+
+
+

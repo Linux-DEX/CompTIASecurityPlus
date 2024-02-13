@@ -1,0 +1,152 @@
+#+TITLE: CompTIA Security+ 
+#+DESCRIPTION: Threats, Attacks, and Vulnerabilities 
+#+AUTHOR: Linux-DEX
+#+OPTION: toc:4
+
+* TABLE OF CONTENT :toc:
+- [[#threats-attacks--vulnerabilities][Threats, Attacks & Vulnerabilities]]
+  - [[#threats][Threats]]
+  - [[#attacks][Attacks]]
+  - [[#vulnerabilities][Vulnerabilities]]
+- [[#phishing][Phishing]]
+  - [[#how-does-phising-work][How does phising work?]]
+  - [[#what-are-the-dangers-of-phishing-attacks][What are the dangers of phishing attacks]]
+  - [[#protect-against-phishing-attacks][Protect against phishing attacks?]]
+  - [[#types-of-phishing-attacks][Types of phishing attacks]]
+- [[#smishing][Smishing]]
+  - [[#how-does-smishing-work][How does smishing work?]]
+  - [[#why-attacker-run-smishing-scams][Why attacker run smishing scams]]
+  - [[#types-of-smishing-attacks][Types of smishing attacks]]
+- [[#vishing][Vishing]]
+
+* Threats, Attacks & Vulnerabilities
+** Threats
++ Acts performed by individuals with harmful intent, whose goal is to steal data, cause damage to or disrupt computer systems.
++ Refers to any potential danger, risk or malicious activity that can exploit vulnerabilities in information system, networks, or data.
+
+    - Actors and Threats
+    - Attributes of Actors
+    - Threat Intelligence Sources
+    - Research Source
+
+** Attacks
++ Any malicious attempt to gain unauthorized access to a computer, computing system or computer network with the intent to cause damage.
+
+    - Social engineering attacks
+    - Malware attacks
+    - Password attacks
+    - Physical attacks
+    - Artifical intelligence attacks
+    - Supply chain attacks
+    - Cloud attacks
+    - On premises attacks
+    - Cryptologic attacks
+    - Application attacks
+    - Network attacks
+
+** Vulnerabilities
++ Vulnerability refers to a weakness or flaw in a system, network, application, or process that could be exploited by threat actors to compromise the confidentiality, integrity, or availability or information or resources.
+
+    - Cloud and on-premise vulnerabilities
+    - Zero-Day
+    - Third-Party risks
+    - Weak configurations
+    - Improper or weak patch management
+    - Legacy platforms
+    - Impacts
+
+* Phishing
++ Phishing attacks are the practice of sending fraudulent communications that appear to come from a reputable source.
++ It is usually done through email. The goal is to steal sensitive data like credit card and login information, or to install *malware* on the victim's machine.
+
+** How does phising work?
++ Phishing starts with a fraudulent email or other communication that is designed to lure a victim.
++ The message is made to look as through it comes from a trusted sender. If it fools the victim, he or she is coaxed into providing confidential information, often on a scam website.
++ Sometime malware is also downloaded onto the target's computer.
+
+** What are the dangers of phishing attacks
++ Sometimes attackers are satisfied with getting a victim's credit card information or other personal data for financial gain.
++ Other times, phishing emails are sent to obtain employee login information or other details for use in advanced attack against a specific company.
++ Cybercrime attacks such as =advanced persistent threats(APT)= and =ransomware= often start with phishing.
+
+** Protect against phishing attacks?
++ User education
++ Security technology
+
+** Types of phishing attacks
+*** Deceptive phishing
++ Deceptive phishing is the most common type of phishing.
++ In this case, an attacker attempts to obtain confidential information from the victims. 
++ Attackers use the information to steal money or to launch other attacks. 
++ A fake email from a bank asking you to click a link and verify your account details is an example of deceptive phishing.
+
+*** Spear phishing
++ Spear phishing targets specific individuals instead of a wide group of people.
++ Attackers often research their victims on social media and other sites. That way, they can customize their communications and appear more authentic.
++ Spear phishing is often the first step used to penetrate a company’s defenses and carry out a targeted attack.
+  
+*** Whaling
++ When attackers go after a “big fish” like a CEO, it’s called whaling.
++ These attackers often spend considerable time profiling the target to find the opportune moment and means of stealing login credentials.
++ Whaling is of particular concern because high-level executives are able to access a great deal of company information.
+
+*** Pharming
++ Similar to phishing, pharming sends users to a fraudulent website that appears to be legitimate. 
++ However, in this case, victims do not even have to click a malicious link to be taken to the bogus site.
++ Attackers can infect either the user’s computer or the website’s DNS server and redirect the user to a fake site even if the correct URL is typed in
+
+* Smishing
++ Smishing or SMS (short message service) phising is a social engineering tactic cybercriminals use to trick people into divulging sensitive information over text messages.
++ Smishing often involves sending bogus text messages that appear to come from a legitimate source, such as a bank or a social media site.
++ Most message have sense of urgency and request the recipient click on a link or reply with personal information.
+
+** How does smishing work?
+These attacks can be delivered through both conventional text messaging and non-SMS messaging apps, such as *whatsapp, viber or snapchat*.
+
+Typically smishing attack work in the following way:
+    1. Attacker sends a victim a smishing text message
+    2. The message delivers a sense of urgency and compels.
+    3. Once victim opens and click on the link , they taken to fraudent website
+    4. The victim might be asked to enter sensitive information
+
+** Why attacker run smishing scams
++ Steal personal information
++ Install malware
++ Easy to accomplish
++ Grab user's attention
++ Gateway to other attacks
+
+** Types of smishing attacks
+*** Urgent message scams
++ These smishing attacks might warn a victim that their account is in jeopardy or delivery will be canceled to get them to respond hastily without thinking.
+  
+*** Fake survey scams
++ hese messages encourage people to complete a survey in exchange for a prize, but they're intended to steal personal information.
+  
+*** Tax season scam
++ Some smishing attacks try to convince people they owe money after filing their taxes and take them to a fraudulent website where they can pay the required amount.
++ Another popular strategy is to convince a victim they're entitled to a substantial refund and ask them to click on a link to recover their money. Once the link is clicked, spyware is typically installed on a victim's cell phone.
+
+*** Fake message scams
++ These smishing messages might appear to be from a reputable source, such as a bank or social networking site, but they're false messages designed to dupe victims into disclosing vital information.
+  
+*** Gift card scams
++ These messages claim a victim has won a gift card or prize and encourage them to click a link to claim it. In reality, it's a ploy to trick people into sharing sensitive information
+  
+*** Malware-embedded communications
++ These messages contain a link to a phony or malware-laden website, which if clicked, can install malicious software on the victim's device.
+
+*** Fake delivery scams
++ Shipping companies such as FedEx and UPS urge customers to be on the lookout for scams involving messages about the attempted delivery of a package.
++ These messages frequently start by saying a delivery attempt was made but the recipient wasn't home.
++ The text might redirect the recipient to a website to reschedule their delivery. Once the victim logs in, the seemingly legitimate website might ask for more personal information, including credit card numbers, birthdates or even Social Security numbers.
+  
+* Vishing
+
+
+
+
+
+
+
+
